@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { TokenService } from './token.service';
+import { TokenService } from '../service/token.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller()
@@ -11,7 +11,7 @@ export class TokenController {
   }
 
   @MessagePattern('CREATE_TOKEN')
-  async generateToken(@Payload() data: any){
-    return 'hola perro me conecte al microservicio de seguridad';
+  async generateToken(){
+    return this.tokenService.createToken();
   }
 }
