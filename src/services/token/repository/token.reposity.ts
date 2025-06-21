@@ -14,7 +14,9 @@ export class TokenRepository {
         return this.tokenRepo.save(token);
     }
 
-    async findById(id: number): Promise<Token | null> {
-        return this.tokenRepo.findOne({ where: { id } });
+    async findOneByToken(token: string): Promise<Token | null> {
+        return this.tokenRepo.findOne({
+            where: { token },
+        });
     }
 }

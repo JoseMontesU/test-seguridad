@@ -14,4 +14,9 @@ export class TokenController {
   async generateToken(){
     return this.tokenService.createToken();
   }
+
+  @MessagePattern('FIND_TOKEN')
+  async findToken(@Payload() payload: { token: string }) {
+    return this.tokenService.findToken(payload.token);
+  }
 }

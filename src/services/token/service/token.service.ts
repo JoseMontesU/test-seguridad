@@ -19,4 +19,9 @@ export class TokenService {
         return newToken;
     }
 
+    async findToken(token: string): Promise<any | null> {
+        const tokenResponse = await this.tokenRepository.findOneByToken(token);
+        if (!tokenResponse) return { success: false, message: 'Token not found', data: null };
+        return { success: true, message: 'ok', data: tokenResponse };
+    }
 }
