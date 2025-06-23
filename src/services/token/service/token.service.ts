@@ -9,8 +9,8 @@ export class TokenService {
         private readonly tokenRepository: TokenRepository,
     ) {}
     
-    generateToken(): string {
-        return Math.random().toString().slice(2, 10).padEnd(8, '0');
+    generateToken(): number {
+        return parseInt(Math.random().toString().slice(2, 10).padEnd(8, '0'));
     }
 
     async createToken(): Promise<Token> {
@@ -19,7 +19,7 @@ export class TokenService {
         return newToken;
     }
 
-    async findToken(token: string): Promise<any | null> {
+    async findToken(token: number): Promise<any | null> {
         const tokenResponse = await this.tokenRepository.findOneByToken(token);
         if (!tokenResponse) return { success: false, message: 'Token not found', data: null };
         return { success: true, message: 'ok', data: tokenResponse };

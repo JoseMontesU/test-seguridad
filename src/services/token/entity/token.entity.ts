@@ -5,8 +5,8 @@ export class Token {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'varchar', length: 8 })
-    token: string;
+    @Column({ type: 'int'})
+    token: number;
 
     @CreateDateColumn({ name: 'created_at', default: new Date() })
     createdAt: Date;
