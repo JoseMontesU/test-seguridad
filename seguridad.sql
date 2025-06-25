@@ -1,5 +1,5 @@
 CREATE TABLE tokens IF NOT EXISTS tokens (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    token CHAR(8) NOT NULL,
+    token int(8) NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
