@@ -15,7 +15,6 @@ export class TokenRepository {
     }
 
     async findOneByToken(token: number): Promise<Token | null> {
-        console.log('Searching for token:', token);
         return this.tokenRepo.findOne({
             where: { token },
         });
